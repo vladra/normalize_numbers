@@ -4,7 +4,8 @@ class Product < ActiveRecord::Base
 end
 
 class ExtendedProduct < Product
-  normalize_numbers :price, :tax
+  attr_accessor :other_price
+  normalize_numbers :price, :tax, :other_price
 end
 
 class NormalizeNumbersTest < Minitest::Test
@@ -18,8 +19,9 @@ class NormalizeNumbersTest < Minitest::Test
   end
 
   def test_price_is_normalized
-    model = ExtendedProduct.new(price: '12,3', tax: '4,5')
+    model = ExtendedProduct.new(price: '12,3', tax: '4,5', other_price: '6,7')
     assert_equal '12.3', model.price.to_s
     assert_equal '4.5', model.tax.to_s
+    assert_equal '6.7', model.other_price.to_s
   end
 end
