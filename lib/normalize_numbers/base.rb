@@ -18,7 +18,7 @@ module NormalizeNumbers
             method = "#{attr}=".to_sym
             define_method(method) do |arg|
               return super arg.tr(',', '.') if arg.is_a? String
-              super
+              super arg
             end
           end
         end
