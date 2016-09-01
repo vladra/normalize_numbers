@@ -13,7 +13,7 @@ Simple solution for Rails to allow numbers with decimal point to be assigned bot
 
 Gemfile:
 ```ruby
-gem 'normalize_rails', git: 'git@github.com:vladra/normalize_numbers.git'
+gem 'normalize_numbers', git: 'git@github.com:vladra/normalize_numbers.git'
 ```
 
 ## Usage
